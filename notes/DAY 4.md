@@ -115,7 +115,7 @@ ul li {
 
 ###### 块级链接
 
-图像转换为链接：
+图像转换为链接： 
 
 ```html
 <a href="https://www.mozilla.org/en-US/">
