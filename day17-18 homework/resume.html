@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简历</title>
+    <link rel="stylesheet" href="css1\style_2.css" type="text/css"> 
+</head>
+
+<body>
+    <h1>简历</h1>
+    <div class="text">
+        <div class="profile">
+            <h2>基本信息</h2>
+            <p><span>姓名</span>&emsp;张三&emsp;&emsp;&emsp;<span>性别</span>&emsp;男&emsp;&emsp;&emsp;<span>应聘职位</span>&emsp;Web前端工程师</p>
+        </div>
+        <div class="connection">
+            <h2>联系方式</h2>
+            <p><span>手机</span>&emsp;12312341234&emsp;&emsp;&emsp;<span>Email</span>&emsp;<a>joinefe@baidu.com</a>&emsp;&emsp;&emsp; <span>个人主页</span>&emsp;<a hrep="https://github.com/Shirob">Github</a></p>
+        </div>
+        <div class="skill">
+            <h2>能力描述</h2>
+            <p><span>技术能力</span><br>熟练掌握HTML，CSS，Javascript</p>
+            <p><span>综合能力</span><br>良好的沟通，主动积极，努力勤奋</p> 
+        </div>
+        <div class="edu">
+            <h2>教育经历</h2>
+            <p><span>本科</span><br>百度前端技术学院小薇学院</p>
+            <p><span>研究生</span><br>百度前端技术学院大斌学院</p>
+        </div>
+        <div class="project">
+            <h2>项目经历</h2>
+            <p><span>小度小度</span><br>作为前端工程师角色参与了ABC组件的开发</p>
+            <p><span>SAN Doc</span><br>作为文档工程师参与了SAN Doc编写</p>
+        </div>
+        <div class="hobby">
+            <h2></h2>
+            <button id="hobby">点击查看我的特殊爱好</button>
+            <p id="result"></p>
+        </div>
+        <script>
+            if (new Date().getHours() >= 6 && new Date().getHours() < 9) {
+                alert("早上好！")
+            }
+            else if (new Date().getHours() >= 9 && new Date().getHours() < 12) {
+                alert("上午好！")
+            }
+            else if (new Date().getHours() >= 12 && new Date().getHours() < 14) {
+                alert("中午好！")
+            }
+            else if (new Date().getHours() >= 14 && new Date().getHours() < 18) {
+                alert("下午好！")
+            }
+            else {
+                alert("晚上好！")
+            }
+            document.getElementById("hobby").onclick = function() {
+                document.getElementById("result").innerHTML = "睡觉"
+            }
+        </script>
+    </div>
+</body>
+</html>
