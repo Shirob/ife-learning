@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body> 
+    <div class="box">
+        <span></span>
+    </div>
+    <style>
+        .box{
+            width: 480px;
+            height: 480px;
+            border: 3px solid;
+        }
+        span {
+            display: inline-block;
+            background-image: url(http://ife.baidu.com/2016/static/img/erik_ce204002.jpg);
+            background-repeat: no-repeat;
+        }
+    </style>         
+    <script>
+        var pic = document.getElementsByTagName('span') //获取图片元素
+        var picNum = 0                   //设置图片Y的初始位置
+        var isTrue = true                 // 设置开关
+        setInterval(picMove, 100)        //设置一个定时器
+        function picMove() {
+            if (isTrue) {                  // 判断开关
+                picNum -= 480         //true向上移动480
+            } else {
+                picNum += 480           //false向下移动480
+            }
+            if (picNum <= -7680) {  // 当整张照片移动到最下面时
+                isTrue = !isTrue // 改变开关
+            } else if (picNum >= 0) { // 当整张照片移动到最上面时
+                isTrue = !isTrue // 改变开关
+            }
+            pic.style.backgroundPosition = '0 ' + picNum + 'px'  //设置背景图片移动位置
+        }
+    </script>
+</body>
+</html>
