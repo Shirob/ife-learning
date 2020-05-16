@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body> 
+    <p id="result-wrapper"></p>
+    <script>
+        function startTime() {
+            var weekday = ["日", "一", "二", "三", "四", "五", "六"];
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = checkZero(today.getMonth() + 1);
+            var date = checkZero(today.getDate());
+            var day = weekday[today.getDay()];
+            var hour = checkZero(today.getHours());
+            var minute = checkZero(today.getMinutes());
+            var second = checkZero(today.getSeconds());
+            document.getElementById("result-wrapper").innerHTML = year + " 年 " + month + " 月 " + date + " 日 星期" + day + " " + hour + ":" + minute + ":" + second;
+        }
+        function checkZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        window.setInterval('startTime()', 500);
+    </script>
+</body>
+</html>
