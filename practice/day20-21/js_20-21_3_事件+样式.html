@@ -33,6 +33,7 @@
 
     <script>
         var li = document.getElementsByTagName("li");
+        var ul = document.querySelector("ul");
         var p = document.getElementsByClassName("color-picker")[0];
         ul.onclick = function(e) {
             p.innerHTML = e.target.style.backgroundColor;

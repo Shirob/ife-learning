@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>            
+    <div>
+        <label>Number A:
+            <input id="radio-a" type="radio" name="math-obj" value="a">
+        </label>
+            <input id="num-a" type="text">
+        <label>Number B:
+            <input id="radio-b" type="radio" name="math-obj" value="b">
+        </label>
+            <input id="num-b" type="text">
+    </div>
+    <div>
+        <button>判断当前选中的输入框输入内容是否为数字</button>
+        <button>把 A 四舍五入为 B 个小数位数的数字</button>
+        <button>当前选中数字的绝对值</button>
+        <button>对当前选中的数字进行上舍入</button>
+        <button>对当前选中的数字进行下舍入</button>
+        <button>把当前选中的数字四舍五入为最接近的整数</button>
+        <button>返回 A 和 B 中的最高值</button>
+        <button>返回 A 和 B 中的最低值</button>        
+    </div>
+    <p id="result"></p>
+
+    <script>
+        //定义常量
+        var btn = document.getElementsByTagName('button'),
+            num_a = document.getElementById('num-a'),
+            num_b = document.getElementById('num-b'),
+            radio_a = document.getElementById('radio-a'),
+            radio_b = document.getElementById('radio-b');
+        var p = document.getElementById('result');
+        
+        //定义数字检查
+        function isNumber(num) {
+            if (!isNaN(num.value) && num.value != "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        //定义勾选检查
+        function isCheck(check) {
+            if (check.checked) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+        //按钮1监听点击，判断选中的输入框的内容是否为数字
+        btn[0].addEventListener("click", function() {
+            if (isCheck(radio_a)) {
+                if (isNumber(num_a)) {
+                    p.innerHTML = "This is a number.";
+                } else {
+                    p.innerHTML = "This is not a number.";
+                    console.log("This is not a number.");
+                }
+            }
+            if (isCheck(radio_b)) {
+                if (isNumber(num_b)) {
+                    p.innerHTML = "This is a number.";
+                } else {
+                    p.innerHTML = "This is not a number.";
+                    console.log("This is not a number.");
+                }
+            }
+        })
+
+        //按钮2监听点击，把A四舍五入为B个小数位数的数字
+        btn[1].addEventListener("click", function() {
+            if (isNumber(num_a) && isNumber(num_b)) {
+                var A = parseFloat(num_a.value);
+                p.innerHTML = A.toFixed(parseInt(num_b.value));
+            } else {
+                console.log("They must be numbers.");
+            }
+        })
+
+        //按钮3监听点击，实现当前选中数字的绝对值
+        btn[2].addEventListener("click", function() {
+            if (isCheck(radio_a)) {
+                if (isNumber(num_a)) {
+                    p.innerHTML = Math.abs(Number(num_a.value));
+                } else {
+                    console.log("This is not a number.");
+                }
+            }
+            if (isCheck(radio_b)) {
+                if (isNumber(num_b)) {
+                    p.innerHTML = Math.abs(Number(num_b.value));
+                } else {
+                    console.log("This is not a number.")
+                }
+            }
+        })
+
+        //按钮4监听点击，对当前选中的数字进行上舍入
+        btn[3].addEventListener("click", function() {
+            if (isCheck(radio_a)) {
+                p.innerHTML = Math.ceil(Number(num_a.value));
+            }
+            if (isCheck(radio_b)) {
+                p.innerHTML = Math.ceil(Number(num_b.value));
+            }
+        })
+
+        //按钮5监听点击，对当前选中的数字进行下舍入
+        btn[4].addEventListener("click", function() {
+            if (isCheck(radio_a)) {
+                p.innerHTML = Math.floor(Number(num_a.value));
+            }
+            if (isCheck(radio_b)) {
+                p.innerHTML = Math.floor(Number(num_b.value));
+            }
+        })
+
+        //按钮6监听点击，把当前选中的数字进行四舍五入
+        btn[5].addEventListener("click", function() {
+            if (isCheck(radio_a)) {
+                p.innerHTML = Math.round(Number(num_a.value));
+            }
+            if (isCheck(radio_b)) {
+                p.innerHTML = Math.round(Number(num_b.value));
+            }
+        })
+
+        //按钮7监听点击，返回最高值
+        btn[6].addEventListener("click", function() {
+            p.innerHTML = Math.max(Number(num_a.value), Number(num_b.value));
+        })
+
+        //按钮8监听点击，返回最小值
+        btn[7].addEventListener("click", function() {
+            p.innerHTML = Math.min(Number(num_a.value), Number(num_b.value));
+        })
+
+    </script>
+</body>
+</html>

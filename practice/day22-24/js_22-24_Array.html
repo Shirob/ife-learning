@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+    <div id="queue">
+        <input id="queue-input" type="text">
+        <p id="queue-cont">队列内容：apple-&gt;pear</p>    
+        <button id="in-btn">入队</button>
+        <button id="out-btn">出队</button>
+        <button id="font-btn">打印队头元素内容</button>
+        <button id="empty-btn">判断队列是否为空</button>
+    </div>
+    <br>
+    <div id="stack">
+        <input id="stack-input" type="text">
+        <p id="stack-cont">栈内容：apple-&gt;pear</p>    
+        <button id="push-btn">进栈</button>
+        <button id="pop-btn">退栈</button>
+        <button id="font-btn">打印栈顶元素内容</button>
+        <button id="empty-btn">判断栈是否为空</button>
+    </div>
+
+    <script>
+        var queue = ["apple", "pear"];
+        var stack = ["apple", "pear"];
+        var btn_q = document.getElementById("queue").getElementsByTagName("button"),
+            btn_st = document.getElementById("stack").getElementsByTagName("button");
+
+        //按钮1监听点击，入队
+        btn_q[0].addEventListener("click", function() {
+            queue.push(document.getElementById("queue-input").value);
+            document.getElementById("queue-cont").innerHTML = "队列内容：" + queue.join("->")
+        })
+
+        //按钮2监听点击，出队
+        btn_q[1].addEventListener("click", function() {
+            queue.shift();
+            document.getElementById("queue-cont").innerHTML = "队列内容：" + queue.join("->")
+        })
+
+        //按钮3监听点击，打印队头元素内容
+        btn_q[2].addEventListener("click", function() {
+            document.getElementById("queue-cont").innerHTML = queue[0];
+        })
+
+        //按钮4监听点击，判断队列是否为空
+        btn_q[3].addEventListener("click", function() {
+            if (queue.length == 0)
+                document.getElementById("queue-cont").innerHTML = "队列是空的";
+            else
+                document.getElementById("queue-cont").innerHTML = "队列不是空的"; 
+        })
+
+        //按钮1监听点击，进栈
+        btn_st[0].addEventListener("click", function() {
+            stack.push(document.getElementById("stack-input").value);
+            document.getElementById("stack-cont").innerHTML = "栈内容：" + stack.join("->")
+        })
+
+        //按钮2监听点击，出栈
+        btn_st[1].addEventListener("click", function() {
+            stack.pop();
+            document.getElementById("stack-cont").innerHTML = "栈内容：" + stack.join("->")
+        })
+
+        //按钮3监听点击，打印栈顶元素内容
+        btn_st[2].addEventListener("click", function() {
+            document.getElementById("stack-cont").innerHTML = stack[stack.length - 1];
+        })
+
+        //按钮4监听点击，判断栈是否为空
+        btn_st[3].addEventListener("click", function() {
+            if (stack.length == 0)
+                document.getElementById("stack-cont").innerHTML = "栈是空的";
+            else
+                document.getElementById("stack-cont").innerHTML = "栈不是空的"; 
+        })
+
+    </script>
+</body>
+</html>
