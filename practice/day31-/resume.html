@@ -42,8 +42,34 @@
     <div id="region-radio-wrapper"></div>
     <div id="product-radio-wrapper"></div>
     <div id="table-wrapper"></div>
+    <div id="bar-wrapper"></div>
+    <div id="line-wrapper"></div>
+    <script src="bar.js"></script>
+    <script src="line.js"></script>
     <script src="./app/table.js"></script>
     <script src="./app/checkbox.js"></script>
     <script src="./app/app.js"></script>
+    <script>
+        var table = document.getElementById("table-wrapper");
+        var bar = document.getElementById("bar-wrapper");
+        var line = document.getElementById("line-wrapper");
+        table.onmouseover = function(e) {
+            removeTable(line);
+            removeTable(bar);
+            var ev = e || window.event;
+            var target = ev.target || ev.srcElement;
+            if (target.parentNode.nodeName.toLowerCase() == 'tr') { 
+                var pro = target.parentNode.getAttribute("product");
+                var reg = target.parentNode.getAttribute("region");
+                for (i = 0; i < sourceData.length; i++) {
+                    if (sourceData[i].product == pro && sourceData[i].region == reg) {
+                        bar.innerHTML = getBar(sourceData[i].sale);
+                        line.appendChild(getLine(sourceData[i].sale));
+                    }
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
 var region = document.getElementById("region-radio-wrapper");
 var product = document.getElementById("product-radio-wrapper");
+var wrapper = document.getElementById("table-wrapper");
 
 //判别选项
 function checkedEle(checkBoxName) {
@@ -11,7 +12,6 @@ function checkedEle(checkBoxName) {
     }
     return selected;
 }
-
 
 //根据select选项获取数据
 function getData(selectRegion, selectProduct) {
@@ -33,7 +33,6 @@ function removeTable(wrapper) {
 
 //渲染新的表格
 function generateTable() {
-    var wrapper = document.getElementById("table-wrapper");
     removeTable(wrapper);
 
     //获取数据
@@ -85,6 +84,8 @@ function createTable1(table, selectRegion, selectProduct) {
             sale.innerHTML = data[i].sale[j];
             td.appendChild(sale);
         }
+        td.setAttribute("product", data[i].product);
+        td.setAttribute("region", data[i].region);
         table.appendChild(td);
     }
 }
@@ -117,6 +118,8 @@ function createTable2(table, selectRegion, selectProduct) {
             sale.innerHTML = data[i].sale[j];
             td.appendChild(sale);
         }
+        td.setAttribute("product", data[i].product);
+        td.setAttribute("region", data[i].region);
         table.appendChild(td);
     }
 }
@@ -152,7 +155,11 @@ function createTable3(table, selectRegion, selectProduct) {
                 td.appendChild(sale);
             }
             table.appendChild(td);
+            td.setAttribute("product", data[idx].product);
+            td.setAttribute("region", data[idx].region);
             idx++;
         }
     }
 }
+
+// 在绘制表格的时候，给对应的td或者tr添加一个自定义属性，这一格数据属于哪个商品哪个区域
